@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deploy
+spec:
+  template:
+    metadata:
+      name: worker
+      labels:
+        app: worker
+    spec:
+      containers:
+        - name: worker
+          image: nirnay2001/worker:backend
+          
+  replicas: 1
+  selector:
+    matchLabels:
+      app: worker

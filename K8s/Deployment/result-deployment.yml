@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-deploy
+spec:
+  template:
+    metadata:
+      name: result
+      labels:
+        app: result
+    spec:
+      containers:
+        - name: result
+          image: nirnay2001/result:forntend
+          ports:
+            - containerPort: 80
+              name: result
+  replicas: 4
+  selector:
+    matchLabels:
+      app: result
+          
