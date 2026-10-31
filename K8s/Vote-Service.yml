@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: vote-svc
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - name: "vote-svc"
       port: 8080
