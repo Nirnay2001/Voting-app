@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1
+kind: VirtualService
+metadata:
+  name: vote-virtualservice
+spec:
+  hosts:
+    - "vote.example.com"
+  gateways:
+    - vote-gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/"
+      route:
+        - destination:
+            host: vote-svc
+            port:
+              number: 8080
